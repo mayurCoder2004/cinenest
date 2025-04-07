@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# CineNest - Movie Website Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive movie website built with React that showcases current movies, upcoming releases, and more.
 
-## Available Scripts
+![CineNest Screenshot](./src/images/homepage.jpg)
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+CineNest is a dynamic movie website that allows users to browse movies by category, view trending movies, read blog posts about the latest movie news, and more. The site features a sleek, modern design with responsive layouts for all device sizes.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Featured Movie Banner** - Showcase highlighted movies with dynamic background images
+- **Movie Categorization** - Filter movies by genre (Romance, Action, Thriller, Horror, Adventure)
+- **Schedule Section** - View movies opening this week
+- **Trending Movies** - Carousel display of upcoming movie releases
+- **Blog Section** - Latest news and updates about movies
+- **Responsive Design** - Optimized for all device sizes
+- **Dynamic Content** - Fetches movie data from JSON API
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js
+- Bootstrap 5
+- Swiper.js for carousels
+- CSS3 for custom styling
+- IonIcons for icons
+- Fetch API for data retrieval
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── App.js              # Main application component
+├── App.css             # Global styles
+├── components/         # Reusable UI components
+│   ├── Card.jsx        # Movie card component
+│   ├── MovieContent.jsx # Movie information component
+│   ├── MovieDate.jsx   # Movie release date component
+│   ├── MovieSwiper.jsx # Movie carousel component
+│   ├── PlayBtn.jsx     # Play button component
+│   └── TrendCard.jsx   # Trending movie card component
+├── pages/              # Page components
+│   ├── Banner.jsx      # Hero banner component
+│   ├── Blog.jsx        # Blog section component
+│   ├── Footer.jsx      # Footer component
+│   ├── Header.jsx      # Navigation header component
+│   ├── Main.jsx        # Main content wrapper
+│   ├── Schedule.jsx    # Movie schedule component
+│   └── Trend.jsx       # Trending movies component
+└── images/             # Static image assets
+```
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/cinenest.git
+cd cinenest
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Create a `public/data/movieData.json` file with your movie data (see API Reference section for format)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Start the development server:
+```bash
+npm start
+```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+After starting the development server, the application will be available at `http://localhost:3000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Filtering Movies
 
-### Code Splitting
+Click on the genre categories in the Schedule section to filter movies by type:
+- All
+- Romance
+- Action
+- Thriller
+- Horror
+- Adventure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Viewing Movie Details
 
-### Analyzing the Bundle Size
+Click on any movie card to see additional details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## API Reference
 
-### Making a Progressive Web App
+The application fetches movie data from a local JSON file at `http://localhost:3000/data/movieData.json`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Example movie data format:
 
-### Advanced Configuration
+```json
+[
+  {
+    "_id": "1",
+    "title": "Movie Title",
+    "year": "2025",
+    "category": "Action",
+    "rating": 8.5,
+    "active": true,
+    "trailer": "https://example.com/trailer",
+    "bgImg": "/path/to/background-image.jpg",
+    "coverImg": "/path/to/cover-image.jpg",
+    "description": "Brief description of the movie"
+  }
+]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+© 2025 CineNest Technologies. All Rights Reserved.
