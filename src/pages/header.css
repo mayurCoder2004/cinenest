@@ -1,0 +1,117 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    transition: all 0.5s ease;
+    z-index: 10000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  header.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid var(--primary);
+    border-image: linear-gradient(90deg, transparent, var(--primary), transparent) 1;
+    backdrop-filter: blur(20px);
+    padding: 15px 100px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .logo {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 35px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(var(--primary-rgb, 255, 0, 0), 0.5);
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(var(--primary-rgb, 255, 0, 0), 0.8);
+  }
+  
+  .logo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary, #ff0000);
+    transition: width 0.3s ease;
+  }
+  
+  .logo:hover::after {
+    width: 100%;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    header, header.scrolled {
+      padding: 20px 50px;
+    }
+    
+    .logo {
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    header, header.scrolled {
+      padding: 15px 30px;
+    }
+    
+    .logo {
+      font-size: 25px;
+    }
+    
+    .nav {
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header, header.scrolled {
+      padding: 10px 20px;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .nav {
+      justify-content: center;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+  }
+  
+  /* Animation for page load */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  header {
+    animation: fadeIn 0.5s ease-out forwards;
+  }

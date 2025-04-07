@@ -1,0 +1,55 @@
+.schedule {
+    padding: 60px 20px;
+    background: #0f0f0f;
+    min-height: 100vh;
+  }
+  
+  .schedule .section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: left; /* ✅ align left */
+    padding-left: 15px; /* Optional: spacing from the container edge */
+  }
+  
+  .schedule .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 12px;
+    margin-top: 40px;
+    padding: 0;
+  }
+  
+  .schedule .filters li {
+    color: #fff;
+    padding: 12px 28px;
+    background: #1f1f1f;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .schedule .filters li:hover,
+  .schedule .filters li.active {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  }
+  
+  .schedule .row.mt-5 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+  }
+  

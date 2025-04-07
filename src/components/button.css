@@ -1,0 +1,76 @@
+.mainBtn{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 15px;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.mainBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ffffff;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.mainBtn:hover{
+    color: var(--primary);
+    cursor: pointer !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mainBtn:hover::before {
+    width: 100%;
+}
+
+.mainBtn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.mainBtn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.mainBtn:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+@media (max-width: 768px) {
+    .mainBtn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}

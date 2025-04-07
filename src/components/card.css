@@ -1,0 +1,331 @@
+/* Outer grid spacing */
+.col-lg-2,
+.col-md-4,
+.col-sm-6 {
+  padding: 15px;
+  perspective: 1000px;
+}
+
+/* Card Container */
+section .movie-card {
+  background: linear-gradient(165deg, #1d1d1d, #141414);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
+  transition: all 0.5s cubic-bezier(0.2, 0.85, 0.4, 1.275);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* On Hover */
+section .movie-card:hover {
+  transform: translateY(-10px) rotateX(3deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 
+              0 0 30px rgba(255, 60, 60, 0.3),
+              0 0 5px rgba(255, 60, 60, 0.1);
+}
+
+/* Movie Poster Container */
+section .movie-card .img-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 280px;
+}
+
+/* Movie Poster */
+section .movie-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.33, 1, 0.68, 1), filter 0.5s ease;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+/* Zoom image slightly on hover with subtle brightness adjustment */
+section .movie-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Movie Meta */
+section .movie-card p {
+  color: #bbb;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 12px 0 0;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+section .movie-card:hover p {
+  color: #eee;
+}
+
+/* Content block */
+section .movie-card .content {
+  padding: 22px 16px 18px;
+  text-align: center;
+  background: linear-gradient(180deg, #1a1a1a, #252525);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+/* Content Hover Effect */
+section .movie-card .content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 60, 60, 0.08) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+section .movie-card:hover .content::before {
+  opacity: 1;
+}
+
+/* Movie Title */
+section .movie-card .content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  position: relative;
+  letter-spacing: 0.8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+section .movie-card:hover .content h4 {
+  transform: translateY(-2px);
+}
+
+/* Underline effect */
+section .movie-card .content h4::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff3c3c, #ff5e3c);
+  margin: 12px auto 0;
+  border-radius: 3px;
+  box-shadow: 0 1px 6px rgba(255, 60, 60, 0.6);
+  transition: width 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Expand underline on hover */
+section .movie-card:hover .content h4::after {
+  width: 70px;
+  box-shadow: 0 2px 12px rgba(255, 60, 60, 0.8);
+}
+
+/* Icon buttons */
+section .movie-card .card-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+section .movie-card .card-icons ion-icon {
+  font-size: 2.1rem;
+  color: #ccc;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  opacity: 0.85;
+  transform-origin: center;
+}
+
+section .movie-card .card-icons ion-icon:hover {
+  color: #ff3c3c;
+  transform: scale(1.3);
+  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(255, 60, 60, 0.8));
+}
+
+/* Add subtle overlay effect on hover */
+section .movie-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280px; /* Match image height */
+  background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 50%, 
+                rgba(0, 0, 0, 0.8) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+section .movie-card:hover::after {
+  opacity: 1;
+}
+
+/* Rating Badge (Optional - Add to your HTML if you want ratings) */
+section .movie-card .rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ff3c3c;
+  border: 1px solid rgba(255, 60, 60, 0.3);
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 2;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+}
+
+section .movie-card:hover .rating {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slight card tilt on cursor movement */
+section .movie-card:hover {
+  transition: transform 0.1s ease-out;
+}
+
+/* Category Pill (could be added to your JSX if desired) */
+section .movie-card .category-pill {
+  position: absolute;
+  bottom: 290px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  background: linear-gradient(90deg, #ff3c3c, #ff5e3c);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  opacity: 0;
+  transform: translateX(-50%) translateY(100%);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+section .movie-card:hover .category-pill {
+  opacity: 1;
+  transform: translateX(-50%) translateY(50%);
+}
+
+/* Add a focus state for accessibility */
+section .movie-card:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 60, 60, 0.5), 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Add a subtle texture overlay */
+section .movie-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Play button effect (optional - add to HTML if desired) */
+section .movie-card .play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+
+section .movie-card .play-btn {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 60, 60, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+section .movie-card .play-btn::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid white;
+  margin-left: 4px;
+}
+
+section .movie-card:hover .play-overlay {
+  opacity: 1;
+}
+
+section .movie-card:hover .play-btn {
+  transform: scale(1);
+}
+
+/* Movie Length & Category Container */
+section .movie-card .meta-container {
+  background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(34,34,34,0.7) 100%);
+  backdrop-filter: blur(4px);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: -24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 85%;
+  position: relative;
+  z-index: 4;
+  transform: translateY(0);
+  transition: transform 0.4s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section .movie-card:hover .meta-container {
+  transform: translateY(-5px);
+  background: linear-gradient(90deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.9) 100%);
+}

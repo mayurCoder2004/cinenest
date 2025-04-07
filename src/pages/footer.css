@@ -1,0 +1,237 @@
+/* Reset global box model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body setup for sticky footer */
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  /* General footer styling */
+  .footer {
+    background-color: #111;
+    color: #fff;
+    padding: 50px 0 30px;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  
+  /* Footer top section */
+  .footer-top {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Logo styling */
+  .footer .logo {
+    text-decoration: none;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+  
+  .footer .logo span {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  /* Footer info section */
+  .footer-info {
+    margin-bottom: 30px;
+  }
+  
+  .footer-info p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Social media links */
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #333;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-links a:hover {
+    background-color: #e50914; /* Netflix-like red for hover */
+  }
+  
+  .social-links a.twitter:hover {
+    background-color: #1DA1F2;
+  }
+  
+  .social-links a.facebook:hover {
+    background-color: #4267B2;
+  }
+  
+  .social-links a.instagram:hover {
+    background-color: #C13584;
+  }
+  
+  .social-links a.youtube:hover {
+    background-color: #FF0000;
+  }
+  
+  /* Icon sizing */
+  .social-links ion-icon {
+    font-size: 20px;
+  }
+  
+  /* Contact section */
+  .footer-contact {
+    margin-bottom: 30px;
+  }
+  
+  .footer-contact h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .footer-contact h4::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #e50914;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .text-center .footer-contact h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-contact p {
+    color: #ccc;
+    line-height: 1.8;
+  }
+  
+  .footer-contact strong {
+    color: #fff;
+  }
+  
+  /* Copyright section */
+  .container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .copyright {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #aaa;
+    padding-top: 20px;
+  }
+  
+  .copyright span {
+    color: #e50914;
+  }
+  
+  .credits {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    padding-bottom: 10px;
+  }
+  
+  .credits a {
+    color: #e50914;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .credits a:hover {
+    color: #fff;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .footer-contact h4::after {
+      left: 0;
+      transform: none;
+    }
+    
+    .text-md-start {
+      text-align: left !important;
+    }
+  }
+  
+  /* Bootstrap grid system replacements (if not using Bootstrap) */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  
+  .col-lg-5, .col-lg-3, .col-md-12 {
+    padding: 0 15px;
+    width: 100%;
+  }
+  
+  @media (min-width: 992px) {
+    .col-lg-5 {
+      width: 41.66%;
+    }
+    
+    .col-lg-3 {
+      width: 25%;
+    }
+  
+    /* Add spacing for larger screens between columns */
+    .row.gy-4 {
+      gap: 0 30px;
+    }
+  }
+  
+  .gy-4 > * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Text alignment classes */
+  .text-center {
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .text-md-start {
+      text-align: left !important;
+    }
+  }
+  
+  /* Ensure the footer sticks to the bottom with no gap */
+  #footer {
+    margin-top: auto;
+  }
