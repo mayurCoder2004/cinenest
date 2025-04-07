@@ -2,7 +2,7 @@
 
 A modern, responsive movie website built with React that showcases current movies, upcoming releases, and more.
 
-![CineNest Screenshot]([./src/images/homepage.jpg](https://res.cloudinary.com/dtogfz0uu/image/upload/v1744059943/homepage_tv9f7o.png))
+![CineNest Screenshot](https://res.cloudinary.com/dtogfz0uu/image/upload/v1744059943/homepage_tv9f7o.png)
 
 ## Table of Contents
 
