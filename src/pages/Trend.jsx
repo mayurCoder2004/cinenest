@@ -14,7 +14,7 @@ import TrendCard from '../components/TrendCard'
 const Trend = () => {
     const [slides, setSlides] = useState([]);
     const fetchMovies = async () => {
-    fetch('http://localhost:3000/data/movieData.json')
+    fetch('./data/movieData.json')
         .then((response=>response.json()))
         .then((data) => {
             setSlides(data) 

@@ -6,7 +6,7 @@ const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     
     const fetchData = async () => {
-        fetch('http://localhost:3000/data/blogData.json')
+        fetch('./data/blogData.json')
             .then(response => response.json())
             .then((data) => {
                 setBlogs(data); 
